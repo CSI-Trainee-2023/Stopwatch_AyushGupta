@@ -1,0 +1,16 @@
+body{
+    background-color: rgb(2, 2, 11);
+}
+.stopwatch{
+    color: white;
+}
+button{
+    color: white;
+    border-radius: 10px;
+}
+#startStop{
+    background-color: rgb(69, 69, 179);
+}
+#lapReset{
+    background-color: gray;
+}
