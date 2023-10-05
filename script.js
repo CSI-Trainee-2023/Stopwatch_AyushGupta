@@ -5,60 +5,91 @@ let second = 0;
 let minute = 0;
 let hour = 0;
 let timer = false;
-let lap="";
+let lap = "";
+let lapCount = 0;
 document.getElementById("lapReset").disabled = true;
+
+function toStart() {
+    isRunning = true;
+    run = true;
+    timer = true;
+    document.getElementById("startStopResume").textContent = "Stop";
+    document.getElementById("lapReset").disabled = false;
+    document.getElementById("startStopResume").classList.replace("purple", "red");
+    timing();
+}
+
+function toStop() {
+    timer = false;
+    isRunning = false;
+    document.getElementById("startStopResume").textContent = "Resume";
+    document.getElementById("startStopResume").classList.replace("red", "blue");
+    document.getElementById("lapReset").textContent = "Reset";
+}
+function toResume() {
+    run = true;
+    timer = true;
+    isRunning = true;
+    document.getElementById("startStopResume").classList.replace("blue", "red");
+    document.getElementById("lapReset").textContent = "Lap";
+    document.getElementById("startStopResume").textContent = "Stop";
+    timing();
+}
+
+function toLap() {
+    
+    if (lapCount == 0) {
+        document.getElementById("laps").innerHTML = "LAPS" + "<br>" + "<br>";
+    }
+    lapCount++;
+    lap = lapCount + ") " + hour + ":" + minute + ":" + second + "." + milliSecond;
+    document.getElementById("laps").innerHTML += (lap + "<br>");
+}
+
+function toReset() {
+    timer = false;
+    run = false;
+    milliSecond = 0;
+    second = 0;
+    minute = 0;
+    hour = 0;
+    lapCount = 0;
+    document.getElementById("hour").innerHTML = "00";
+    document.getElementById("minute").innerHTML = "00";
+    document.getElementById("second").innerHTML = "00";
+    document.getElementById("millisecond").innerHTML = "00";
+    document.getElementById("laps").innerHTML = "";
+    document.getElementById("startStopResume").textContent = "Start";
+    document.getElementById("lapReset").textContent = "Lap";
+    document.getElementById("lapReset").disabled = true;
+    document.getElementById("startStopResume").classList.replace("blue", "purple");
+}
 
 function startStopResume() {
     if (isRunning == false && run == false) {
-        isRunning = true;
-        run = true;
-        timer = true;
-        document.getElementById("startStopResume").textContent = "Stop";
-        document.getElementById("lapReset").disabled = false;
-        timing();
+        toStart();
     }
     else if (isRunning == true && run == true) {
-        timer = false;
-        isRunning = false;
-        document.getElementById("startStopResume").textContent = "Resume";
-        document.getElementById("lapReset").textContent = "Reset";
+        toStop();
     }
     else {
-        run = true;
-        timer = true;
-        isRunning = true;
-        document.getElementById("lapReset").textContent = "Lap";
-        document.getElementById("startStopResume").textContent = "Stop";
-        timing();
+        toResume();
     }
 }
 
 function lapReset() {
     if (isRunning == false) {
-        timer=false;
-        run=false;
-        milliSecond = 0;
-        second = 0;
-        minute = 0;
-        hour = 0;
-        document.getElementById("hour").innerHTML = "00";
-        document.getElementById("minute").innerHTML = "00";
-        document.getElementById("second").innerHTML = "00";
-        document.getElementById("millisecond").innerHTML = "00";
-        document.getElementById("laps").innerHTML="";
-        document.getElementById("startStopResume").textContent = "Start";
-        document.getElementById("lapReset").textContent = "Lap";
+        toReset();
     }
-    else{
-        lap=hour+":"+minute+":"+second+"."+milliSecond;
-        document.getElementById("laps").innerHTML+=(lap+"<br>");
+    else {
+        toLap();
     }
 }
 
 
 function timing() {
     if (timer == true) {
-        milliSecond = milliSecond + 1;
+        milliSecond++;
         if (milliSecond == 100) {
             milliSecond = 0;
             second++;
@@ -77,5 +108,6 @@ function timing() {
         document.getElementById("second").innerHTML = second;
         document.getElementById("millisecond").innerHTML = milliSecond;
         setTimeout("timing()", 10);
+        window.addEventListener("keydown", checkkey);
     }
 }

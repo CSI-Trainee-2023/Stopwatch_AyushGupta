@@ -1,7 +1,8 @@
 body {
-    background-color: rgb(2, 2, 11);
+    background-color: rgb(8, 8, 37);
     justify-content: center;
     align-items: center;
+    display: flex;
     height: 96vh;
 }
 
@@ -14,19 +15,34 @@ button {
     color: white;
     border-radius: 90px;
     font-size: 40px;
+    padding: 0px 15px;
+    margin: 30px;
+    text-decoration: none;
 }
 
 button:hover {
     cursor: pointer;
 }
 
-#startStopResume {
-    background-color: rgb(69, 69, 179);
+.purple {
+    background-color: rgb(111, 68, 176);
+}
+
+.red {
+    background-color: rgb(180, 12, 12);
+}
+
+.blue{
+    background-color: rgb(35, 47, 176);
 }
 
 #lapReset {
     background-color: gray;
 }
-#laps{
-    color:white;
+
+#laps {
+    text-align: center;
+    color: white;
+    font-size: 35px;
+    font-family: Georgia, 'Times New Roman', serif;
 }
