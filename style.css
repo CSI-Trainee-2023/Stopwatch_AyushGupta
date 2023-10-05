@@ -1,16 +1,32 @@
-body{
+body {
     background-color: rgb(2, 2, 11);
+    justify-content: center;
+    align-items: center;
+    height: 96vh;
 }
-.stopwatch{
+
+#watch {
     color: white;
+    font-size: 90px;
 }
-button{
+
+button {
     color: white;
-    border-radius: 10px;
+    border-radius: 90px;
+    font-size: 40px;
 }
-#startStop{
+
+button:hover {
+    cursor: pointer;
+}
+
+#startStopResume {
     background-color: rgb(69, 69, 179);
 }
-#lapReset{
+
+#lapReset {
     background-color: gray;
+}
+#laps{
+    color:white;
 }
