@@ -37,7 +37,7 @@ function toResume() {
 }
 
 function toLap() {
-    
+
     if (lapCount == 0) {
         document.getElementById("laps").innerHTML = "LAPS" + "<br>" + "<br>";
     }
@@ -111,3 +111,9 @@ function timing() {
         window.addEventListener("keydown", checkkey);
     }
 }
+
+document.addEventListener("keydown", e => { if (e.ctrlKey && e.key.toLowerCase() === "s") { toStart() } });
+document.addEventListener("keydown", e => { if (e.ctrlKey && e.key.toLowerCase() === "x") { toStop() } });
+document.addEventListener("keydown", e => { if (e.ctrlKey && e.key.toLowerCase() === "r") { toReset() } });
+document.addEventListener("keydown", e => { if (e.ctrlKey && e.key.toLowerCase() === "l") { toLap() } });
+document.addEventListener("keydown", e => { if (e.ctrlKey && e.key.toLowerCase() === "p") { toResume() } });
