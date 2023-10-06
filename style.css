@@ -9,6 +9,7 @@ body {
 #watch {
     color: white;
     font-size: 90px;
+    position: sticky;
 }
 
 button {
@@ -39,7 +40,11 @@ button:hover {
 #lapReset {
     background-color: gray;
 }
-
+#lapHead{
+    text-align: center;
+    color: white;
+    font-size: 40px;
+}
 #laps {
     text-align: center;
     color: white;
