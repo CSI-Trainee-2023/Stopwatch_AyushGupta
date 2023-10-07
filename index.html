@@ -6,20 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StopWatch</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
 </head>
 
 <body>
     <div id="all">
-    <div id="stopWatch">
+        <div id="stopWatch">
         <div id="watch">
-            <span id="hour">00</span>
+            <span id="hour"></span>
             <span>:</span>
-            <span id="minute">00</span>
+            <span id="minute"></span>
             <span>:</span>
-            <span id="second">00</span>
+            <span id="second"></span>
             <span>.</span>
-            <span id="millisecond">00</span>
+            <span id="millisecond"></span>
         </div>
         <button id="lapReset" onclick="lapReset()">Lap</button>
         <button id="startStopResume" class="purple" onclick="startStopResume()">Start</button>
@@ -27,6 +26,9 @@
         <p id="laps"></p>
     </div>
     </div>
+    
+    <script src="script.js"></script>
+    <script src="prevData.js"></script>
 </body>
 
 </html>
